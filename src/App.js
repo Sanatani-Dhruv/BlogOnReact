@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header.js";
+// import './App.css';
+
+function Card({ bName,bDesc }) {
+  let styles = {
+    border: "1px solid black",
+    padding: "10px",
+    width: "max-content",
+    margin: "auto 10px"
+  };
+
+  return (
+    <div className="Card" style={styles}>
+      <h1>{bName}</h1>
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Card bName={"This is Name"} />
     </div>
   );
 }
