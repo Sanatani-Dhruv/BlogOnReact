@@ -1,4 +1,5 @@
-import Header from "./Header.js";
+import Header, {showBlogUi} from "./Header.js";
+import React, { useState, useContext} from 'react';
 // import './App.css';
 
 function Card({ bName,bDesc }) {
@@ -17,11 +18,18 @@ function Card({ bName,bDesc }) {
 }
 
 function App() {
+  const [showBlogUi, setBlogUi] = useState(showBlogUi);
+
   return (
-    <div className="App">
+    <>
       <Header />
-      <Card bName={"This is Name"} />
-    </div>
+            <button class="bg-blue-400 p-2 pt-2 pb-2 rounded" onClick={() => {
+              setBlogUi(true);
+              console.log(showBlogUi);
+            }}>Add Blog</button>
+      { !(showBlogUi)? <Card bName={"Lorem Ipsum"} /> : "" }
+      {console.log(showBlogUi)}
+    </>
   );
 }
 
