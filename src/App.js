@@ -1,4 +1,5 @@
-import Header, {showBlogUi} from "./Header.js";
+import Header from "./Header.js";
+import { toggle } from "./util.js";
 import React, { useState, useContext} from 'react';
 // import './App.css';
 
@@ -18,17 +19,16 @@ function Card({ bName,bDesc }) {
 }
 
 function App() {
-  const [showBlogUi, setBlogUi] = useState(showBlogUi);
-
+  const [showBlogUi, setBlogUi] = useState(false);
   return (
     <>
       <Header />
-            <button class="bg-blue-400 p-2 pt-2 pb-2 rounded" onClick={() => {
-              setBlogUi(true);
-              console.log(showBlogUi);
-            }}>Add Blog</button>
-      { !(showBlogUi)? <Card bName={"Lorem Ipsum"} /> : "" }
-      {console.log(showBlogUi)}
+      <div class="tasks p-4 m-auto w-max">
+        <button class="bg-blue-400 p-2 pt-2 pb-2 rounded" onClick={() => toggle(setBlogUi,showBlogUi)}>Add Blog</button>
+      </div>
+      <div class="p-4 m-auto w-max">
+        { (!showBlogUi) && <Card bName={"Showing Card"} />  }
+      </div>
     </>
   );
 }
